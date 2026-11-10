@@ -1,111 +1,287 @@
+
+@import "tailwindcss";
+
+/* =========================================
+   NÚCLEO - SISTEMA DE DISEÑO SPECTRUM
+========================================= */
+
+@theme {
+  /* Colores principales */
+  --color-mac-bg: #0b0b10;
+  --color-mac-panel: #17151f;
+  --color-mac-beige: #22202b;
+  --color-mac-border: #35303f;
+  --color-mac-ink: #f5f1f7;
+  --color-mac-muted: #a7a0b0;
+  --color-mac-pink: #f0449d;
+  --color-mac-success: #53c69a;
+
+  /* Colores de la esfera NÚCLEO */
+  --color-nucleo-pink: #f0449d;
+  --color-nucleo-orange: #ff7848;
+  --color-nucleo-blue: #4e9bff;
+  --color-nucleo-purple: #9859e8;
+  --color-nucleo-amber: #ffb05b;
+
+  /* Fondos por módulo */
+  --color-nucleo-pink-bg: #391f31;
+  --color-nucleo-orange-bg: #3b231e;
+  --color-nucleo-blue-bg: #15263d;
+  --color-nucleo-purple-bg: #2b203e;
+  --color-nucleo-amber-bg: #3a2b1b;
+}
+
+/* =========================================
+   ESTILOS GENERALES
+========================================= */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #f5f1f7;
+  background: #0b0b10;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
 body {
-  margin: 0;
+  background: #0b0b10;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+button,
+input {
+  font: inherit;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+button {
+  cursor: pointer;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #4e9bff;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   FONDO RETRO FUTURISTA
+========================================= */
+
+.nucleo-background {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(240, 68, 157, 0.09),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 100% 80%,
+      rgba(78, 155, 255, 0.055),
+      transparent 45%
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    #0b0b10;
+
+  background-size:
+    auto,
+    auto,
+    32px 32px,
+    32px 32px,
+    auto;
+}
+
+/* =========================================
+   GRADIENTE DE MARCA
+========================================= */
+
+.nucleo-spectrum {
+  background: linear-gradient(
+    90deg,
+    #4e9bff 0%,
+    #9859e8 25%,
+    #f0449d 55%,
+    #ff7848 80%,
+    #ffb05b 100%
+  );
+}
+
+.nucleo-text-gradient {
+  background: linear-gradient(
+    110deg,
+    #f0449d 10%,
+    #ff7848 60%,
+    #ffb05b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================
+   VENTANAS Y TARJETAS
+========================================= */
+
+.mac-window {
+  background: #17151f;
+  border: 1px solid #403449;
+  border-radius: 18px;
+  box-shadow:
+    0 20px 65px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(240, 68, 157, 0.045);
+}
+
+.mac-card {
+  background: #17151f;
+  border: 1px solid #35303f;
+  border-radius: 16px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mac-card:hover {
+  border-color: #6f4765;
+  box-shadow: 0 12px 35px rgba(240, 68, 157, 0.08);
+}
+
+.mac-topbar {
+  background: rgba(15, 14, 21, 0.94);
+  border-bottom: 1px solid #35303f;
+  backdrop-filter: blur(16px);
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.mac-input {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #40384b;
+  border-radius: 10px;
+  background: #100f16;
+  color: #f5f1f7;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mac-input::placeholder {
+  color: #777180;
+}
+
+.mac-input:focus {
+  border-color: #f0449d;
+  box-shadow: 0 0 0 3px rgba(240, 68, 157, 0.14);
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.mac-button {
+  background: linear-gradient(
+    110deg,
+    #f0449d,
+    #dc398e
+  );
+  color: #fff;
+  border: 1px solid #f36cb1;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-weight: 700;
+  box-shadow: 0 5px 25px rgba(240, 68, 157, 0.22);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mac-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(240, 68, 157, 0.35);
+}
+
+.mac-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.mac-button-secondary {
+  background: #201b28;
+  color: #e7deeb;
+  border: 1px solid #40384b;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mac-button-secondary:hover:not(:disabled) {
+  border-color: #f0449d;
+  background: #2c2030;
+}
+
+/* =========================================
+   BADGES Y TEXTO
+========================================= */
+
+.mac-muted {
+  color: #a7a0b0;
+}
+
+.mac-badge {
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border: 1px solid #493448;
+  border-radius: 999px;
+  background: #261b2b;
+  color: #f1add0;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.nucleo-glow {
+  text-shadow: 0 0 28px rgba(240, 68, 157, 0.32);
+}
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
